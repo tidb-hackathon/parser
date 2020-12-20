@@ -1760,6 +1760,8 @@ const (
 	TableOptionTableCheckSum
 	TableOptionUnion
 	TableOptionEncryption
+	TableOptionTTL
+	TableOptionTTLGranularity
 )
 
 // RowFormat types
@@ -2002,6 +2004,14 @@ func (n *TableOption) Restore(ctx *format.RestoreCtx) error {
 		ctx.WritePlain(")")
 	case TableOptionEncryption:
 		ctx.WriteKeyWord("ENCRYPTION ")
+		ctx.WritePlain("= ")
+		ctx.WriteString(n.StrValue)
+	case TableOptionTTL:
+		ctx.WriteKeyWord("TTL ")
+		ctx.WritePlain("= ")
+		ctx.WritePlainf("%d", n.UintValue)
+	case TableOptionTTLGranularity:
+		ctx.WriteKeyWord("TTL_GRANULARITY ")
 		ctx.WritePlain("= ")
 		ctx.WriteString(n.StrValue)
 	default:
