@@ -3538,7 +3538,7 @@ PartDefOption:
 	}
 |	"TTL" EqOpt StringName
 	{
-		ttl := strings.ToUpper($3.(string))
+		ttl := strings.ToLower($3.(string))
 		$$ = &ast.TableOption{Tp: ast.TableOptionTTL, StrValue: ttl}
 	}
 |	"TTL_GRANULARITY" EqOpt StringName
