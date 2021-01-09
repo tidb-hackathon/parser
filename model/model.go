@@ -676,6 +676,7 @@ const (
 	PartitionTypeList                     = 3
 	PartitionTypeKey                      = 4
 	PartitionTypeSystemTime               = 5
+	PartitionTypeTTL                      = 6
 )
 
 func (p PartitionType) String() string {
@@ -690,6 +691,8 @@ func (p PartitionType) String() string {
 		return "KEY"
 	case PartitionTypeSystemTime:
 		return "SYSTEM_TIME"
+	case PartitionTypeTTL:
+		return "TTL"
 	default:
 		return ""
 	}

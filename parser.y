@@ -3536,9 +3536,10 @@ PartDefOption:
 	{
 		$$ = &ast.TableOption{Tp: ast.TableOptionNodegroup, UintValue: $3.(uint64)}
 	}
-|	"TTL" EqOpt LengthNum
+|	"TTL" EqOpt StringName
 	{
-		$$ = &ast.TableOption{Tp: ast.TableOptionTTL, UintValue: $3.(uint64)}
+		ttl := strings.ToUpper($3.(string))
+		$$ = &ast.TableOption{Tp: ast.TableOptionTTL, StrValue: ttl}
 	}
 |	"TTL_GRANULARITY" EqOpt StringName
 	{

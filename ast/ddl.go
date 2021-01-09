@@ -2009,7 +2009,7 @@ func (n *TableOption) Restore(ctx *format.RestoreCtx) error {
 	case TableOptionTTL:
 		ctx.WriteKeyWord("TTL ")
 		ctx.WritePlain("= ")
-		ctx.WritePlainf("%d", n.UintValue)
+		ctx.WritePlainf("%s", n.StrValue)
 	case TableOptionTTLGranularity:
 		ctx.WriteKeyWord("TTL_GRANULARITY ")
 		ctx.WritePlain("= ")
