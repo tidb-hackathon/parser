@@ -300,8 +300,9 @@ type TableInfo struct {
 	TiFlashReplica *TiFlashReplicaInfo `json:"tiflash_replica"`
 
 	// TTL
-	TTL      time.Duration
-	TTLByRow bool
+	TTL                 time.Duration
+	TTLByRow            bool
+	NextTTLTruncateTime time.Time
 }
 
 // TableLockInfo provides meta data describing a table lock.
